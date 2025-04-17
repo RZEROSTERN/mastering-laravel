@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Add a new task')
+@section('title', 'Update task')
 @section('styles')
     <style>
         .error-message {
@@ -9,7 +9,7 @@
     </style>
 @endsection
 @section('content')
-    <form method="POST" action="{{ route('tasks.update') }}">
+    <form method="POST" action="{{ route('tasks.update', ['task' => $task->id]) }}">
         @csrf
         @method('PUT')
         <div>
@@ -33,6 +33,6 @@
             <p class="error-message">{{ $message }}</p>
             @enderror
         </div>
-        <button type="submit">Add Task</button>
+        <button type="submit">Update Task</button>
     </form>
 @endsection
